@@ -144,7 +144,7 @@ body.lit .cta,body.menuopen .cta{opacity:0!important;pointer-events:none}
 <div class="colophon chrome">Case Files 2026</div>
 <button id="gridBtn" class="gridbtn" aria-label="Toggle grid view"><b></b><b></b><b></b><b></b></button>
 <div class="cue chrome"><s></s><span>Drag to rotate</span></div>
-<div id="menu"><nav><a href="#" data-grid>Case Archive</a><a href="#" data-close-menu>Practice Areas</a><a href="#" data-close-menu>About</a><a href="#" data-close-menu>Contact</a></nav><div class="addr">Consultations by appointment<br>contact@anmisconsultancy.com</div></div>
+<div id="menu"><nav><a href="#" data-grid>Case Archive</a><a href="#" data-close-menu>About</a><a href="tel:+911234567890" data-tel>Contact</a></nav><div class="addr">Consultations by appointment<br>contact@anmisconsultancy.com</div></div>
 <div id="lit"><div class="scrim" data-close></div><div class="plate" id="plate"><div class="shot"><a id="litLink" target="_blank" rel="noopener" aria-label="Open case file PDF"><img id="litImg" alt=""></a><button class="close" data-close>Close</button></div><div class="meta"><div><h2 id="litTitle"></h2><div class="where" id="litWhere"></div></div><div><p class="note" id="litNote"></p><a class="pdf" id="litPdf" target="_blank" rel="noopener">Read full case file (PDF) →</a></div></div></div></div>
 <div id="intro"><div class="fallback"></div><video id="film" muted playsinline autoplay preload="auto" disablepictureinpicture src="intro.mp4"></video><div class="veil"></div><button class="skip" id="skip">Skip</button></div>
 <div id="splash"><div class="mark">Anmis<em>Consultancy</em></div><div class="bar"><s id="bar"></s></div><div class="tag">Legal Services</div></div>
@@ -286,7 +286,7 @@ $("#gridBtn").addEventListener("click",function(){setGrid(!body.classList.contai
 var mb=$("#menuBtn");
 function setMenu(on){body.classList.toggle("menuopen",on);mb.setAttribute("aria-expanded",on);mb.setAttribute("aria-label",on?"Close menu":"Open menu")}
 mb.addEventListener("click",function(){setMenu(!body.classList.contains("menuopen"))});
-$("#menu").addEventListener("click",function(e){var a=e.target.closest("a");if(!a)return;e.preventDefault();setMenu(false);if(a.hasAttribute("data-grid"))setGrid(true)});
+$("#menu").addEventListener("click",function(e){var a=e.target.closest("a");if(!a)return;if(a.hasAttribute("data-tel")){setMenu(false);return}e.preventDefault();setMenu(false);if(a.hasAttribute("data-grid"))setGrid(true)});
 $(".wordmark").addEventListener("click",function(e){e.preventDefault()});
 addEventListener("keydown",function(e){if(e.key!=="Escape")return;if(litOpen)closeLit();else if(body.classList.contains("menuopen"))setMenu(false);else if(body.classList.contains("gridview"))setGrid(false)});
 // ---- cursor
