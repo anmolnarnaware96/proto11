@@ -24,6 +24,7 @@ em{font-style:normal}
 #world{position:absolute;top:50%;left:50%;width:0;height:0;transform-style:preserve-3d;will-change:transform}
 #orb{position:absolute;top:0;left:0;width:0;height:0;transform-style:preserve-3d;opacity:1;transform:none}
 #headline{position:absolute;top:0;left:0;width:var(--hw);margin-left:calc(var(--hw) / -2);text-align:center;font-family:var(--serif);font-weight:400;font-size:clamp(25px,3.7vw,55px);line-height:1.06;letter-spacing:-.005em;color:#fff;text-shadow:0 2px 34px rgba(0,0,0,.55);pointer-events:none;user-select:none;-webkit-user-select:none}
+#headline{transition:opacity .4s ease}body.lit #headline{opacity:0!important}
 #headline .inner{position:absolute;top:0;left:0;width:100%;transform:translateY(-50%)}
 #headline .inner span{display:inline-block;opacity:0;transform:translateY(.42em);filter:blur(7px)}
 body.revealed #headline .inner span{opacity:1;transform:none;filter:blur(0);transition:opacity 1.05s,transform 1.15s,filter 1.05s;transition-delay:calc(.9s + var(--i) * .085s)}
